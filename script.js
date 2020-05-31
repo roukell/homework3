@@ -1,4 +1,4 @@
-// User click on generateBtn, enter data, and computer obtain the values and pass them into resultEl.
+// User click on generateBtn, enter data, and computer obtain the values and pass them into generatePassword().
 document.getElementById("generateBtn").addEventListener("click", function userInput() {
   const charLowercase = confirm("Click Ok if you would like lowercase in your password, if not click Cancel");
   const charUppercase = confirm("Click Ok if you would like uppercase in your password, if not click Cancel");
