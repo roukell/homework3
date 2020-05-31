@@ -1,5 +1,3 @@
-
-
 // User click on generateBtn, enter data, and computer obtain the values and pass them into resultEl.
 document.getElementById("generateBtn").addEventListener("click", function userInput() {
   const charLowercase = confirm("Click Ok if you would like lowercase in your password, if not click Cancel");
@@ -12,21 +10,24 @@ document.getElementById("generateBtn").addEventListener("click", function userIn
   while (charLength == null) {
     let charLength = Number(prompt("How many character would you like to have in your password? (between 8 ~ 128 characters)"));
     if (charLength < 8 || charLength > 128 || charLength == null) {
-      prompt("error, only 8~128 char, please retype.");
+      prompt("Error! Only enter 8~128 characters, please reenter.");
     } else
     {
-      generatePassword(charLength, charLowercase, charUppercase, charSymbol, charNumber);
+      password.innerText = generatePassword(charLength, charLowercase, charUppercase, charSymbol, charNumber);
       return charLength;
     }
   }
 });
 
+// function that generates random cases, numbers, and symbols
 const randomFunc = {
   charLowercase: getRandomLower,
   charUppercase: getRandomUpper,
   charNumber: getRandomNumber,
   charSymbol: getRandomSymbol,
 };
+
+
 
 // Generate password function
 function generatePassword(charLength, charLowercase, charUppercase, charSymbol, charNumber){
@@ -39,20 +40,20 @@ function generatePassword(charLength, charLowercase, charUppercase, charSymbol, 
   console.log("typesArray: ", typesArray);
 
   // 2. if user selected nothing, password will not generate
-  if (typesCount === 0){
+  if (typesCount === 0){alert ("Error! Please use at least one character");
     return "";
   }
 
   // 3. loop over length call generator function for each type
-  for (let i = 0; i <= charLength-1; i += typesCount) {
+  for (let i = 0; i <= charLength; i += typesCount) {
     typesArray.forEach(type => {const funcName = Object.keys(type)[0];
       console.log('funcName: ', funcName);
 
     generatedPassword = generatedPassword + randomFunc[funcName]();
     });
   }
-console.log(generatedPassword);
-  
+const finalPassword = generatedPassword.slice(0, charLength);
+return finalPassword;
 }
 
 
