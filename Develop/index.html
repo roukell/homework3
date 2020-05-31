@@ -19,7 +19,12 @@
         <h2>Generate a Password</h2>
       </div>
       <div class="card-body">
-        <textarea id="passwordDisplay">Password</textarea>
+        <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
       </div>
       <div class="card-footer">
         <button type="submit" id="generateBtn" class="btn">Generate Password</button>
