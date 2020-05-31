@@ -45,6 +45,8 @@ function generatePassword(charLength, charLowercase, charUppercase, charSymbol, 
   }, {
     charNumber
   }].filter(item => Object.values(item)[0]);
+  // .filter() filters the items that are 'false' (unwanted by user)
+
 
   // console.log("typesArray: ", typesArray);
 
