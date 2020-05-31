@@ -10,7 +10,7 @@ document.getElementById("generateBtn").addEventListener("click", function userIn
   while (charLength == null) {
     let charLength = Number(prompt("How many character would you like to have in your password? (between 8 ~ 128 characters)"));
     if (charLength < 8 || charLength > 128 || charLength == null) {
-      alert ("Error! Only enter 8~128 characters, please reenter.");
+      alert("Error! Only enter 8~128 characters, please reenter.");
     } else {
       // link the final password to HTML
       password.innerText = generatePassword(charLength, charLowercase, charUppercase, charSymbol, charNumber);
@@ -33,7 +33,8 @@ function generatePassword(charLength, charLowercase, charUppercase, charSymbol, 
   // 1. initial password variable
   let generatedPassword = "";
   const typesCount = charLowercase + charUppercase + charSymbol + charNumber;
-  console.log("typesCount: ", typesCount);
+
+  // console.log("typesCount: ", typesCount);
 
   const typesArray = [{
     charLowercase
